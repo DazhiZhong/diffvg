@@ -8,7 +8,7 @@ import importlib
 from sysconfig import get_paths
 
 import importlib
-from setuptools import setup, Extension
+from setuptools import setup, Extension, find_packages
 from setuptools.command.build_ext import build_ext
 from setuptools.command.install import install
 from distutils.sysconfig import get_config_var
@@ -94,5 +94,5 @@ setup(name = 'diffvg',
       description = 'Differentiable Vector Graphics',
       ext_modules = [CMakeExtension('diffvg', '', build_with_cuda)],
       cmdclass = dict(build_ext=Build, install=install),
-      packages = packages,
+      packages = ["."]+packages,
       zip_safe = False)
