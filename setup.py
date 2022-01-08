@@ -90,9 +90,9 @@ if 'DIFFVG_CUDA' in os.environ:
 
 setup(name = 'diffvg',
       version = '0.0.1',
-      install_requires = ["svgpathtools"],
+      install_requires = ["svgpathtools","cssutils"],
       description = 'Differentiable Vector Graphics',
       ext_modules = [CMakeExtension('diffvg', '', build_with_cuda)],
       cmdclass = dict(build_ext=Build, install=install),
-      packages = ["."]+find_packages(where="pydiffvg")+packages,
+      packages = ["."]+find_packages(where="pydiffvg")+find_packages()+packages,
       zip_safe = False)
